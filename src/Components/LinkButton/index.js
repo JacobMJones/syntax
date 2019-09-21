@@ -20,7 +20,7 @@ const LinkButton = props => {
           console.log('link button called')
         pageDispatch({
           type: "changePage",
-          newPage: props.newPage
+          newPage: props.title
         });
         history.push(to);
       }}
