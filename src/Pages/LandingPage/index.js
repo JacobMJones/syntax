@@ -4,10 +4,12 @@ import LinkButton from "../../Components/LinkButton";
 import { useStateValue } from "../../State/StateProvider";
 import { BodyContainer, MessagesContainer, Header } from "./styles";
 function HomePage() {
+
+  const [{ title }] = useStateValue();
   return (
     <BodyContainer>
       <Header>
-        <h1>Syntax Battles! Welcome to the Terrordome!</h1>
+        <h1>{title} Welcome to the Terrordome!</h1>
       </Header>
       <MessagesContainer>
         <LinkButton title={"Write"} to={"/write"} />
