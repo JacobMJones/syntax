@@ -3,3 +3,8 @@
 ### https://www.styled-components.com/
 
 ### https://reacttraining.com/react-router/web/guides/quick-start
+
+### Eventually guide for authentication https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial ???
+
+
+
