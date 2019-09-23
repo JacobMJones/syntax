@@ -6,7 +6,8 @@ import {
   BodyContainer,
   Header,
   InputContainer,
-  FeedbackContainer
+  CurrentSentenceContainer,
+  LastSentenceContainer
 } from "./styles";
 
 function WritePage() {
@@ -21,8 +22,8 @@ function WritePage() {
     });
   };
 
-  const myInput = useInput("Write sentence here", {
-   // validate: (newValue) => /[A-Z]/.test( newValue[0]) 
+  const myInput = useInput("", {
+    // validate: (newValue) => /[A-Z]/.test( newValue[0])
   });
 
   return (
@@ -32,31 +33,25 @@ function WritePage() {
         <LinkButton title={"Read"} to={"/read"} />
         <LinkButton title={"Landing"} to={"/"} />
       </Header>
-      <FeedbackContainer>
+      <CurrentSentenceContainer>
         <p>The current sentence is:</p>
-         <p>{myInput.value}</p>
-      </FeedbackContainer>
+        <p>{myInput.value}</p>
+      </CurrentSentenceContainer>
       <InputContainer>
-        <div>
-          <input {...myInput} />
-          <br />
-          <button
-            onClick={() => {
-              submitSentence();
-            }}
-          >
-            Submit
-          </button>
-          <p>
-            <p>
-              Last value was:
-              <p>
-                <b>{sentences[sentences.length - 1]}</b>
-              </p>
-            </p>
-          </p>
-        </div>
+        <input {...myInput} />
+        <br />
+        <button
+          onClick={() => {
+            submitSentence();
+          }}
+        >
+          Submit
+        </button>
       </InputContainer>
+      <LastSentenceContainer>
+        Last sentence added:
+        <p>{sentences[sentences.length - 1]}</p>
+      </LastSentenceContainer>
     </BodyContainer>
   );
 }

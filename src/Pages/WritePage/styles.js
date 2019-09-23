@@ -5,7 +5,7 @@ const BodyContainer = styled.div`
   display: grid;
   grid-template-areas:
     "header header header "
-    "feedback feedback feedback"
+    "current last feedback"
     "input input input";
   grid-template-rows: 0.5fr 1fr 3fr;
   grid-template-columns: 25% 50% 25%;
@@ -34,16 +34,23 @@ const InputContainer = styled.h1`
 `;
 
 
-const FeedbackContainer = styled.h1`
-  grid-area:feedback;
+const CurrentSentenceContainer = styled.h1`
+  grid-area:current;
   background-color: lightyellow;
   text-align: center;
-  font-size: 40px;
+  font-size: 20px;
+  width:100%;
+`;
+
+const LastSentenceContainer = styled.h1`
+  grid-area:last;
+  background-color: lightyellow;
+  text-align: center;
+  font-size: 20px;
   width:100%;
 `;
 
 
 
 
-
-export { BodyContainer,Header, InputContainer, FeedbackContainer};
+export { BodyContainer,Header, InputContainer, CurrentSentenceContainer, LastSentenceContainer};
