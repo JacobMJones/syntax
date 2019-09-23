@@ -5,10 +5,10 @@ export default {
   page:'home',
   sentences: [{
     originalSentence:"I am the first sentence",
-    alternateSentence:[]
+    alternateSentences:["Sentence first am I", "The first sentence is I", "I am the start sentence"]
   },{
     originalSentence:"I am the second sentence",
-    alternateSentence:[]
+    alternateSentences:["Number 2 sentence, that's me!", "Tis I! The second sentence"]
   }],
 };
 

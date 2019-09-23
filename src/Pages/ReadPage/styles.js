@@ -31,4 +31,25 @@ background-color: whitesmoke;
   width:100%;
 `;
 
-export { BodyContainer, SentencesContainer, Header};
+const InputBox = styled.input`
+  width: 60vw;
+  height: 10vh;
+  text-align: center;
+  font-size: 28px;
+  margin-top: 5vh;
+`;
+const InputContainer = styled.h1`
+  grid-area: input;
+  background-color: lightgreen;
+  text-align: center;
+  font-size: 40px;
+  width: 100%;
+`;
+
+const SubmitButton = styled.button`
+  width: 10vw;
+  height: 10vh;
+  font-size: 20px;
+  margin-top:12px;
+`;
+export { BodyContainer, SentencesContainer, Header, InputBox, InputContainer, SubmitButton};

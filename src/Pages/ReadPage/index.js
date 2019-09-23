@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import LinkButton from "../../Components/LinkButton";
 import { useStateValue } from "../../State/StateProvider";
-import { BodyContainer, SentencesContainer, Header } from "./styles";
-import { statement } from "@babel/template";
+import { BodyContainer, SentencesContainer, Header, InputContainer,InputBox, SubmitButton } from "./styles";
+import { useInput } from "rooks";
 
 function ReadPage() {
   const [{ sentences }, sentenceDispatch] = useStateValue();
   const [addingSentence, setAddingSentence] = useState(false);
   const [focusedSentence, setFocusedSentence] = useState(null);
+  const myInput = useInput("")
   return (
     <BodyContainer>
       <Header>
@@ -18,14 +19,30 @@ function ReadPage() {
       {addingSentence ? (
         <SentencesContainer>
           {focusedSentence.originalSentence}
+          <br/>  <br/>
+          {focusedSentence.alternateSentences.map(item => (
+            <div>{item}</div>
+          ))}
+          <br/>
+          <InputContainer>
+        <InputBox {...myInput} />
+        <br />
+        <SubmitButton
+          onClick={() => {
+          //  submitSentence();
+          }}
+        >
+          Submit
+        </SubmitButton>
+      </InputContainer>
           <button
-                onClick={() => {
-                  setFocusedSentence(null);
-                  setAddingSentence(false);
-                }}
-              >
-                rewrite
-              </button> 
+            onClick={() => {
+              setFocusedSentence(null);
+              setAddingSentence(false);
+            }}
+          >
+            X
+          </button>
         </SentencesContainer>
       ) : (
         <SentencesContainer>
