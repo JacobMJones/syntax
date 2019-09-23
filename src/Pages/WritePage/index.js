@@ -24,7 +24,7 @@ function WritePage() {
     });
   };
 
-  const myInput = useInput("");
+  const myInput = useInput("add sentence here");
 
   return (
     <BodyContainer background="grey">
@@ -48,6 +48,7 @@ function WritePage() {
           Submit
         </SubmitButton>
       </InputContainer>
+      
       <LastSentenceContainer>
         Last sentence added:
         <p>{sentences[sentences.length - 1].originalSentence}</p>

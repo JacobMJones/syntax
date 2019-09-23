@@ -1,5 +1,4 @@
 import React from "react";
-import { Body, Span } from "./styles";
 import LinkButton from "../../Components/LinkButton";
 import { useStateValue } from "../../State/StateProvider";
 import { BodyContainer, MessagesContainer, Header } from "./styles";
@@ -9,7 +8,7 @@ function HomePage() {
   return (
     <BodyContainer>
       <Header>
-      {title} Welcome to the Terrordome!
+      {title}
       </Header>
       <MessagesContainer>
         <LinkButton title={"Write"} to={"/write"} />

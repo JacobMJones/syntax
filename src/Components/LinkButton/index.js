@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import { useStateValue } from "../../State/StateProvider";
 const LinkButton = props => {
@@ -8,13 +7,7 @@ const LinkButton = props => {
 
   const {
     history,
-    location,
-    match,
-    staticContext,
     to,
-    onClick,
-    title,
-    newPage
   } = props;
 
   return (
@@ -30,10 +23,6 @@ const LinkButton = props => {
       {props.title}
     </button>
   );
-};
-
-LinkButton.propTypes = {
-  to: PropTypes.string.isRequired,
 };
 
 export default withRouter(LinkButton);
