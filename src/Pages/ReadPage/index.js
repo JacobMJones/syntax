@@ -1,23 +1,24 @@
 import React from "react";
-import LinkButton from "../../Components/LinkButton"
+import LinkButton from "../../Components/LinkButton";
 import { useStateValue } from "../../State/StateProvider";
 import { BodyContainer, MessagesContainer, Header } from "./styles";
 
 function ReadPage() {
-  const [{ page }] = useStateValue();
+  const [{ sentences }, sentenceDispatch] = useStateValue();
   return (
     <BodyContainer>
       <Header>
-        {page} is the page im on.
-        <LinkButton title={"Write"} to={'/write'} />
-        <LinkButton title={"Landing"} to={'/'} />
+        Read.
+        <LinkButton title={"Write"} to={"/write"} />
+        <LinkButton title={"Landing"} to={"/"} />
       </Header>
       <MessagesContainer>
-     
+        {sentences.map(item => (
+          <div>{item.originalSentence}</div>
+        ))}
       </MessagesContainer>
     </BodyContainer>
   );
 }
 
 export default ReadPage;
-

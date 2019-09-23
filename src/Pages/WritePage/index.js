@@ -14,9 +14,10 @@ import {
 
 function WritePage() {
   const [{ sentences }, sentenceDispatch] = useStateValue();
+
   const submitSentence = () => {
     let newSentenceArray = sentences;
-    newSentenceArray.push(myInput.value);
+    newSentenceArray.push({originalSentence:myInput.value, alternateSentences:[]});
     sentenceDispatch({
       type: "changeSentence",
       newSentence: newSentenceArray
@@ -38,7 +39,7 @@ function WritePage() {
       </CurrentSentenceContainer>
       <InputContainer>
         <InputBox {...myInput} />
-        <br/>
+        <br />
         <SubmitButton
           onClick={() => {
             submitSentence();
@@ -46,11 +47,10 @@ function WritePage() {
         >
           Submit
         </SubmitButton>
-        
       </InputContainer>
       <LastSentenceContainer>
         Last sentence added:
-        <p>{sentences[sentences.length - 1]}</p>
+        <p>{sentences[sentences.length - 1].originalSentence}</p>
       </LastSentenceContainer>
     </BodyContainer>
   );

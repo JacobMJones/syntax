@@ -3,6 +3,13 @@ export default {
   filter: [],
   auth: null,
   page:'home',
-  sentences: ["I am the first sentence.", "I am the second sentence."],
- 
+  sentences: [{
+    originalSentence:"I am the first sentence",
+    alternateSentence:[]
+  },{
+    originalSentence:"I am the second sentence",
+    alternateSentence:[]
+  }],
 };
+
+
