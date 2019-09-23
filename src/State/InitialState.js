@@ -2,5 +2,7 @@ export default {
   title: "Syntax Battles",
   filter: [],
   auth: null,
-  page:'home'
+  page:'home',
+  sentence: '',
+  sentences:[]
 };

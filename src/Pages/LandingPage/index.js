@@ -9,7 +9,7 @@ function HomePage() {
   return (
     <BodyContainer>
       <Header>
-        <h1>{title} Welcome to the Terrordome!</h1>
+      {title} Welcome to the Terrordome!
       </Header>
       <MessagesContainer>
         <LinkButton title={"Write"} to={"/write"} />

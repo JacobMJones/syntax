@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 import { withRouter } from "react-router";
 import { useStateValue } from "../../State/StateProvider";
 const LinkButton = props => {
+
   const [{ page }, pageDispatch] = useStateValue();
+
   const {
     history,
     location,
@@ -14,10 +16,10 @@ const LinkButton = props => {
     title,
     newPage
   } = props;
+
   return (
     <button
       onClick={() => {
-          console.log('link button called')
         pageDispatch({
           type: "changePage",
           newPage: props.title

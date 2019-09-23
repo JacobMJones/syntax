@@ -4,9 +4,9 @@ import styled from "styled-components";
 const BodyContainer = styled.div`
   display: grid;
   grid-template-areas:
-    "header header header"
-    "stats input filter"
-    "stats messages filter";
+    "header header header "
+    "feedback feedback feedback"
+    "input input input";
   grid-template-rows: 0.5fr 1fr 3fr;
   grid-template-columns: 25% 50% 25%;
   grid-row-gap: 10px;
@@ -14,6 +14,7 @@ const BodyContainer = styled.div`
   height: 100vh;
   margin: 0;
   width:100vw;
+  background-color:${props => props.background}
 `;
 
 const Header = styled.h1`
@@ -24,11 +25,25 @@ const Header = styled.h1`
   width:100%;
 `;
 
-const NavButton = styled.button`
+const InputContainer = styled.h1`
+  grid-area: input;
+  background-color: lightyellow;
+  text-align: center;
+  font-size: 40px;
+  width:100%;
+`;
 
-margin-right:30vw;
 
-`
+const FeedbackContainer = styled.h1`
+  grid-area:feedback;
+  background-color: lightyellow;
+  text-align: center;
+  font-size: 40px;
+  width:100%;
+`;
 
 
-export { BodyContainer,Header, NavButton };
+
+
+
+export { BodyContainer,Header, InputContainer, FeedbackContainer};

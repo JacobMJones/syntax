@@ -5,20 +5,17 @@ export default (state, action) => {
         ...state,
         page: action.newPage
       };
+
     case "addFilter":
       return {
         ...state,
         filter: action.newFilter
       };
+
     case "changeSentence":
       return {
         ...state,
-        message: action.newMessage
-      };
-    case "addSentence":
-      return {
-        ...state,
-        messages: action.newMessages
+        sentence: action.newSentence
       };
     default:
       return state;
