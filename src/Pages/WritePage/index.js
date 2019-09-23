@@ -7,7 +7,8 @@ import {
   Header,
   InputContainer,
   CurrentSentenceContainer,
-  LastSentenceContainer
+  LastSentenceContainer,
+  InputBox
 } from "./styles";
 
 function WritePage() {
@@ -38,7 +39,7 @@ function WritePage() {
         <p>{myInput.value}</p>
       </CurrentSentenceContainer>
       <InputContainer>
-        <input {...myInput} />
+        <InputBox {...myInput} />
         <br />
         <button
           onClick={() => {

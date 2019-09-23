@@ -27,7 +27,7 @@ const Header = styled.h1`
 
 const InputContainer = styled.h1`
   grid-area: input;
-  background-color: lightyellow;
+  background-color: lightgreen;
   text-align: center;
   font-size: 40px;
   width:100%;
@@ -50,7 +50,13 @@ const LastSentenceContainer = styled.h1`
   width:100%;
 `;
 
+const InputBox= styled.input`
+  width:60vw;
+  height: 10vh;
+  text-align: center;
+  font-size: 28px;
+ margin-top:5vh;
+`;
 
 
-
-export { BodyContainer,Header, InputContainer, CurrentSentenceContainer, LastSentenceContainer};
+export { BodyContainer,Header, InputContainer, CurrentSentenceContainer, LastSentenceContainer, InputBox};
