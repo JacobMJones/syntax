@@ -1,5 +1,12 @@
 import styled from "styled-components";
 
+const Header = styled.h1`
+  grid-area: header;
+  background-color: whitesmoke;
+  text-align: center;
+  font-size: 40px;
+  width:100%;
+`;
 
 const BodyContainer = styled.div`
   display: grid;
@@ -16,19 +23,7 @@ const BodyContainer = styled.div`
   width:100vw;
 `;
 
-const Header = styled.h1`
-  grid-area: header;
-  background-color: whitesmoke;
-  text-align: center;
-  font-size: 40px;
-  width:100%;
-`;
-const NavButton = styled.button`
-
-margin-right:30vw;
-
-`
-const MessagesContainer = styled.span`
+const SentencesContainer = styled.span`
 grid-area:messages;
 background-color: whitesmoke;
   text-align: center;
@@ -36,4 +31,4 @@ background-color: whitesmoke;
   width:100%;
 `;
 
-export { BodyContainer, MessagesContainer, Header, NavButton };
+export { BodyContainer, SentencesContainer, Header};
