@@ -3,6 +3,6 @@ export default {
   filter: [],
   auth: null,
   page:'home',
-  sentence: '',
-  sentences:[]
+  sentences: ["I am the first sentence.", "I am the second sentence."],
+ 
 };

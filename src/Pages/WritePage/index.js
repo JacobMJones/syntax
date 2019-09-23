@@ -1,7 +1,6 @@
 import React from "react";
 import { useStateValue } from "../../State/StateProvider";
-// import { useInput } from "../../Hooks/useInput";
-import { useInput} from "rooks";
+import { useInput } from "rooks";
 import LinkButton from "../../Components/LinkButton";
 import {
   BodyContainer,
@@ -11,42 +10,52 @@ import {
 } from "./styles";
 
 function WritePage() {
-  const [{ page }] = useStateValue();
-  const [{ sentence }, sentenceDispatch] = useStateValue();
-
+  const [{ sentences }, sentenceDispatch] = useStateValue();
 
   const submitSentence = () => {
-
+    let newSentenceArray = sentences;
+    newSentenceArray.push(myInput.value);
     sentenceDispatch({
       type: "changeSentence",
-      newSentence: myInput.value
+      newSentence: newSentenceArray
     });
   };
 
-  const myInput = useInput("Write sentence here");
+  const myInput = useInput("Write sentence here", {
+   // validate: (newValue) => /[A-Z]/.test( newValue[0]) 
+  });
+
   return (
     <BodyContainer background="grey">
       <Header>
-        {page} is the page im on.
+        Write.
         <LinkButton title={"Read"} to={"/read"} />
         <LinkButton title={"Landing"} to={"/"} />
       </Header>
       <FeedbackContainer>
-        <p>The current sentence is:</p> <p>{myInput.value}</p>
+        <p>The current sentence is:</p>
+         <p>{myInput.value}</p>
       </FeedbackContainer>
-
       <InputContainer>
-      <div>
-      <input {...myInput} />
-      <br/>
-      <button onClick={()=>{submitSentence()}}>Submit</button>
-      <p>
-      <p>
-        Last value was:<p><b>{sentence}</b></p> 
-      </p>
-      </p>
-     </div>
-
+        <div>
+          <input {...myInput} />
+          <br />
+          <button
+            onClick={() => {
+              submitSentence();
+            }}
+          >
+            Submit
+          </button>
+          <p>
+            <p>
+              Last value was:
+              <p>
+                <b>{sentences[sentences.length - 1]}</b>
+              </p>
+            </p>
+          </p>
+        </div>
       </InputContainer>
     </BodyContainer>
   );
