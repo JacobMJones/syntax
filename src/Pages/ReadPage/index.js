@@ -9,6 +9,19 @@ function ReadPage() {
   const [addingSentence, setAddingSentence] = useState(false);
   const [focusedSentence, setFocusedSentence] = useState(null);
   const myInput = useInput("")
+
+  const submitAlternateSentence = () => {
+    let newSentenceArray = sentences;
+   // newSentenceArray.push({originalSentence:myInput.value, alternateSentences:[]});
+   let index = newSentenceArray.indexOf(focusedSentence)
+   newSentenceArray[index].alternateSentences.push(myInput.value)
+   console.log('index', index)
+    sentenceDispatch({
+      type: "changeSentence",
+      newSentence: newSentenceArray
+    });
+  };
+
   return (
     <BodyContainer>
       <Header>
@@ -29,7 +42,7 @@ function ReadPage() {
         <br />
         <SubmitButton
           onClick={() => {
-          //  submitSentence();
+           submitAlternateSentence();
           }}
         >
           Submit

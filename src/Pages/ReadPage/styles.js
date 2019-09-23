@@ -5,7 +5,7 @@ const Header = styled.h1`
   background-color: whitesmoke;
   text-align: center;
   font-size: 40px;
-  width:100%;
+  width: 100%;
 `;
 
 const BodyContainer = styled.div`
@@ -20,15 +20,15 @@ const BodyContainer = styled.div`
   grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
-  width:100vw;
+  width: 100vw;
 `;
 
 const SentencesContainer = styled.span`
-grid-area:messages;
-background-color: whitesmoke;
+  grid-area: messages;
+  background-color: whitesmoke;
   text-align: center;
   font-size: 40px;
-  width:100%;
+  width: 100%;
 `;
 
 const InputBox = styled.input`
@@ -50,6 +50,13 @@ const SubmitButton = styled.button`
   width: 10vw;
   height: 10vh;
   font-size: 20px;
-  margin-top:12px;
+  margin-top: 12px;
 `;
-export { BodyContainer, SentencesContainer, Header, InputBox, InputContainer, SubmitButton};
+export {
+  BodyContainer,
+  SentencesContainer,
+  Header,
+  InputBox,
+  InputContainer,
+  SubmitButton
+};
