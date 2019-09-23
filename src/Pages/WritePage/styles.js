@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const BodyContainer = styled.div`
   display: grid;
   grid-template-areas:
@@ -13,8 +12,8 @@ const BodyContainer = styled.div`
   grid-column-gap: 10px;
   height: 100vh;
   margin: 0;
-  width:100vw;
-  background-color:${props => props.background}
+  width: 100vw;
+  background-color: ${props => props.background};
 `;
 
 const Header = styled.h1`
@@ -22,7 +21,7 @@ const Header = styled.h1`
   background-color: whitesmoke;
   text-align: center;
   font-size: 40px;
-  width:100%;
+  width: 100%;
 `;
 
 const InputContainer = styled.h1`
@@ -30,33 +29,46 @@ const InputContainer = styled.h1`
   background-color: lightgreen;
   text-align: center;
   font-size: 40px;
-  width:100%;
+  width: 100%;
 `;
 
-
 const CurrentSentenceContainer = styled.h1`
-  grid-area:current;
+  grid-area: current;
   background-color: lightyellow;
   text-align: center;
   font-size: 20px;
-  width:100%;
+  width: 100%;
 `;
 
 const LastSentenceContainer = styled.h1`
-  grid-area:last;
+  grid-area: last;
   background-color: lightyellow;
   text-align: center;
   font-size: 20px;
-  width:100%;
+  width: 100%;
 `;
 
-const InputBox= styled.input`
-  width:60vw;
+const InputBox = styled.input`
+  width: 60vw;
   height: 10vh;
   text-align: center;
   font-size: 28px;
- margin-top:5vh;
+  margin-top: 5vh;
 `;
 
+const SubmitButton = styled.button`
+  width: 10vw;
+  height: 10vh;
+  font-size: 20px;
+  margin-top:12px;
+`;
 
-export { BodyContainer,Header, InputContainer, CurrentSentenceContainer, LastSentenceContainer, InputBox};
+export {
+  SubmitButton,
+  BodyContainer,
+  Header,
+  InputContainer,
+  CurrentSentenceContainer,
+  LastSentenceContainer,
+  InputBox
+};

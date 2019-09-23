@@ -8,12 +8,12 @@ import {
   InputContainer,
   CurrentSentenceContainer,
   LastSentenceContainer,
-  InputBox
+  InputBox,
+  SubmitButton
 } from "./styles";
 
 function WritePage() {
   const [{ sentences }, sentenceDispatch] = useStateValue();
-
   const submitSentence = () => {
     let newSentenceArray = sentences;
     newSentenceArray.push(myInput.value);
@@ -23,9 +23,7 @@ function WritePage() {
     });
   };
 
-  const myInput = useInput("", {
-    // validate: (newValue) => /[A-Z]/.test( newValue[0])
-  });
+  const myInput = useInput("");
 
   return (
     <BodyContainer background="grey">
@@ -40,14 +38,15 @@ function WritePage() {
       </CurrentSentenceContainer>
       <InputContainer>
         <InputBox {...myInput} />
-        <br />
-        <button
+        <br/>
+        <SubmitButton
           onClick={() => {
             submitSentence();
           }}
         >
           Submit
-        </button>
+        </SubmitButton>
+        
       </InputContainer>
       <LastSentenceContainer>
         Last sentence added:
