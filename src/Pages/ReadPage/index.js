@@ -1,33 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LinkButton from "../../Components/LinkButton";
 import { useStateValue } from "../../State/StateProvider";
-import { BodyContainer, SentencesContainer, Header, InputContainer,InputBox, SubmitButton } from "./styles";
+import { BodyContainer, SentencesContainer, Header, Title, InputContainer,InputBox, SubmitButton } from "./styles";
 import { useInput } from "rooks";
-
+import data from "../../Data/mock.json"
 function ReadPage() {
   const [{ sentences }, sentenceDispatch] = useStateValue();
   const [addingSentence, setAddingSentence] = useState(false);
   const [focusedSentence, setFocusedSentence] = useState(null);
   const myInput = useInput("")
+  const [s, setS] = useState('placeholder sentence');
+  useEffect(() => setS('another sentence'), []);
 
   const submitAlternateSentence = () => {
-    let newSentenceArray = sentences;
-   // newSentenceArray.push({originalSentence:myInput.value, alternateSentences:[]});
-   let index = newSentenceArray.indexOf(focusedSentence)
-   newSentenceArray[index].alternateSentences.push(myInput.value)
-   console.log('index', index)
-    sentenceDispatch({
-      type: "changeSentence",
-      newSentence: newSentenceArray
-    });
+
   };
 
   return (
     <BodyContainer>
       <Header>
-        Read.
-        <LinkButton title={"Write"} to={"/write"} />
-        <LinkButton title={"Landing"} to={"/"} />
+ 
+      Hell
       </Header>
       {addingSentence ? (
         <SentencesContainer>
@@ -59,9 +52,9 @@ function ReadPage() {
         </SentencesContainer>
       ) : (
         <SentencesContainer>
-          {sentences.map(item => (
+          {data.map(item => (
             <div style={{ background: "lightblue", marginTop: "10px" }}>
-              <div>{item.originalSentence}</div>
+              <div>{item.text}</div>
               <button
                 onClick={() => {
                   setFocusedSentence(item);

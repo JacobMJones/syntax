@@ -4,7 +4,7 @@ import * as ROUTES from "../../Constants/routes";
 import LandingPage from "../../Pages/LandingPage";
 import ReadPage from "../../Pages/ReadPage";
 import WritePage from "../../Pages/WritePage";
-
+import RandomSentencePage from "../../Pages/RandomSentencePage";
 function Layout() {
   return (
     <React.Fragment>
@@ -13,6 +13,7 @@ function Layout() {
           <Route exact path={ROUTES.LANDING} component={LandingPage} />
           <Route path={ROUTES.READ} component={ReadPage} />
           <Route path={ROUTES.WRITE} component={WritePage} />
+          <Route path={ROUTES.RANDOMSENTENCE} component={RandomSentencePage} />
         </div>
       </Router>
     </React.Fragment>
