@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import LinkButton from "../../Components/LinkButton";
 import { useStateValue } from "../../State/StateProvider";
+import useResizeAware from "react-resize-aware";
+import Sentence from "../../Components/Sentence";
+import AlternateSentence from "../../Components/AlternateSentence";
+
 import {
   BodyContainer,
   SentenceContainer,
-  Sentence,
   InputContainer,
   Title,
   HeaderLeft,
@@ -14,7 +17,7 @@ import {
 function HomePage() {
   const [sentenceObject, setSentenceObject] = useState({});
   const [showAlternateSentences, setShowAlternateSentences] = useState(false);
-
+  const [resizeListener, sizes] = useResizeAware();
   useEffect(() => {
     fetchRandomSentence();
   }, []);
@@ -33,7 +36,8 @@ function HomePage() {
 
   return (
     <BodyContainer>
-      <HeaderLeft>Left</HeaderLeft>
+      {resizeListener}
+      <HeaderLeft />
       <Title>Syntax Battles</Title>
       <HeaderRight>
         <button
@@ -41,14 +45,44 @@ function HomePage() {
             fetchRandomSentence();
           }}
         >
-          New Sentence
+          Random New Sentence
         </button>
       </HeaderRight>
       <SentenceContainer>
-        {" "}
-        <Sentence>{sentenceObject.text}</Sentence>
+        {showAlternateSentences ? (
+          <React.Fragment>
+            <Sentence margin={"2vh"} text={sentenceObject.text} />
+            <button
+              onClick={() => {
+                setShowAlternateSentences(false);
+              }}
+            >
+              Hide alternative versions
+            </button>
+          </React.Fragment>
+        ) : (
+          <React.Fragment>
+            <Sentence margin={"12vh"} text={sentenceObject.text} />
+            <button
+              onClick={() => {
+                setShowAlternateSentences(true);
+              }}
+            >
+              Show alternative versions
+            </button>
+          </React.Fragment>
+        )}
+        {showAlternateSentences && sentenceObject.childSentences
+          ? sentenceObject.childSentences.map((item, index) => (
+              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
+                <br />
+              </AlternateSentence>
+            ))
+          : ""}
       </SentenceContainer>
-      <InputContainer></InputContainer>
+      <InputContainer>
+        <input></input>
+      </InputContainer>
     </BodyContainer>
   );
 }

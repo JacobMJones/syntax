@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import { device, fontSize } from '../../Constants/devices.js';
+
+const altSentenceFontSizeModifier = .6;
+
 
 const BodyContainer = styled.div`
   display: grid;
@@ -8,6 +12,8 @@ const BodyContainer = styled.div`
   height: 100vh;
   margin: 0;
   width: 100vw;
+  position:absolute;
+ 
 `;
 
 const Title = styled.h1`
@@ -39,13 +45,8 @@ const NavButton = styled.button`
   margin-right: 30vw;
 `;
 
-const Sentence = styled.div`
-  text-align: center;
-  font-size: 60px;
-  margin: auto;
- 
-  
-`;
+
+
 const SentenceContainer = styled.span`
   grid-column: col-start 1 / span 12;
   grid-row: row-start 2 / span 6;
@@ -65,7 +66,7 @@ const InputContainer = styled.span`
 `;
 
 export {
-  Sentence,
+
   BodyContainer,
   InputContainer,
   SentenceContainer,
