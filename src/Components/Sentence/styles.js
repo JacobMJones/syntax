@@ -29,15 +29,15 @@ const SentenceContainer = styled.div`
   }
   @media ${device.laptopL} {
 
-    font-size:${fontSize.laptopL}px;
+    font-size:${fontSize.laptopL};
   }
   @media ${device.desktop} {
  
-    font-size:${fontSize.desktop}px;
+    font-size:${fontSize.desktop};
   }
   @media ${device.desktopL} {
  
-    font-size:${fontSize.desktopL}px;
+    font-size:${fontSize.desktopL};
   }
 `;
 

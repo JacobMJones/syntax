@@ -3,7 +3,7 @@ import {
  SentenceContainer
   } from "./styles";
 const Sentence = ({text}) => {
-  return <SentenceContainer>{text}</SentenceContainer>;
+  return <SentenceContainer multiple={2}>{text}</SentenceContainer>;
 }
 
 export default Sentence;

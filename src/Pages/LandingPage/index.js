@@ -8,15 +8,18 @@ import fetchRandomSentence from "../../ServerAPI/fetchRandomSentence.js";
 import {
   BodyContainer,
   SentenceContainer,
+  AllSentencesContainer,
   InputContainer,
   Title,
   Header,
-  ShowSentencesButton
+  ShowSentencesButton,
+  MainSentence
 } from "./styles";
 
 function HomePage() {
   const [sentenceObject, setSentenceObject] = useState({});
   const [showAlternateSentences, setShowAlternateSentences] = useState(false);
+  const [mainSentenceTopPosition, setMainSentenceTopPosition] = useState("60%");
   const [resizeListener, sizes] = useResizeAware();
   useEffect(() => {
     fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
@@ -30,24 +33,50 @@ function HomePage() {
       <Header colStart={10}>
         <button
           onClick={() => {
-            fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
+            showAlternateSentences
+              ? setTimeout(
+                  () =>
+                    fetchRandomSentence(
+                      setShowAlternateSentences,
+                      setSentenceObject
+                    ),
+                  100
+                )
+              : fetchRandomSentence(
+                  setShowAlternateSentences,
+                  setSentenceObject
+                );
+
+            setMainSentenceTopPosition("60%");
+            setShowAlternateSentences(false);
+            //setTimeout(()=> setMainSentenceTopPosition('60%'), 400)
           }}
         >
           Random New Sentence
         </button>
       </Header>
-      <SentenceContainer>
-        <Sentence margin={"2vh"} text={sentenceObject.text} />
-
-        {showAlternateSentences &&
-          sentenceObject.childSentences &&
-          sentenceObject.childSentences.map((item, index) => (
-            <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
-              <br />
-            </AlternateSentence>
-          ))}
+      <AllSentencesContainer>
+        <SentenceContainer animationSpeed={200} top={mainSentenceTopPosition}>
+          <MainSentence showAlternateSentences={showAlternateSentences}>{sentenceObject.text}</MainSentence>
+    
+        </SentenceContainer>
+        <SentenceContainer
+          animationSpeed={200}
+          opacity={showAlternateSentences ? 1 : 0}
+        >
+          {showAlternateSentences &&
+            sentenceObject.childSentences &&
+            sentenceObject.childSentences.map((item, index) => (
+              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
+                <br />
+              </AlternateSentence>
+            ))}
+        </SentenceContainer>
         <ShowSentencesButton
           onClick={() => {
+            setMainSentenceTopPosition(
+              mainSentenceTopPosition === "0%" ? "60%" : "0%"
+            );
             setShowAlternateSentences(!showAlternateSentences);
           }}
         >
@@ -55,7 +84,8 @@ function HomePage() {
             ? "Hide alternative versions"
             : "Show alternative versions"}
         </ShowSentencesButton>
-      </SentenceContainer>
+      </AllSentencesContainer>
+
       <InputContainer>
         <input></input>
       </InputContainer>
