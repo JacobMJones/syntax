@@ -25,16 +25,8 @@ const Title = styled.h1`
   width: 100%;
 `;
 
-const HeaderLeft = styled.h1`
-  grid-column: col-start 1 / span 3;
-  grid-row: 1;
-  background-color: purple;
-  text-align: center;
-  font-size: 40px;
-  width: 100%;
-`;
-const HeaderRight = styled.h1`
-  grid-column: col-start 10 / span 3;
+const Header = styled.h1`
+  grid-column: col-start ${props => props.colStart || 1} / span 3;
   grid-row: 1;
   background-color: purple;
   text-align: center;
@@ -78,7 +70,6 @@ export {
   SentenceContainer,
   Title,
   NavButton,
-  HeaderLeft,
-  HeaderRight,
+  Header,
   ShowSentencesButton 
 };

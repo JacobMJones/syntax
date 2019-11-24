@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import LinkButton from "../../Components/LinkButton";
-import { useStateValue } from "../../State/StateProvider";
+// import LinkButton from "../../Components/LinkButton";
+// import { useStateValue } from "../../State/StateProvider";
 import useResizeAware from "react-resize-aware";
 import Sentence from "../../Components/Sentence";
 import AlternateSentence from "../../Components/AlternateSentence";
@@ -10,8 +10,7 @@ import {
   SentenceContainer,
   InputContainer,
   Title,
-  HeaderLeft,
-  HeaderRight,
+  Header,
   ShowSentencesButton
 } from "./styles";
 
@@ -26,9 +25,9 @@ function HomePage() {
   return (
     <BodyContainer>
       {resizeListener}
-      <HeaderLeft />
+      <Header />
       <Title>Syntax Battles</Title>
-      <HeaderRight>
+      <Header colStart={10}>
         <button
           onClick={() => {
             fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
@@ -36,7 +35,7 @@ function HomePage() {
         >
           Random New Sentence
         </button>
-      </HeaderRight>
+      </Header>
       <SentenceContainer>
         <Sentence margin={"2vh"} text={sentenceObject.text} />
 
@@ -57,7 +56,6 @@ function HomePage() {
             : "Show alternative versions"}
         </ShowSentencesButton>
       </SentenceContainer>
-
       <InputContainer>
         <input></input>
       </InputContainer>
