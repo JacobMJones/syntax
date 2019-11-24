@@ -49,7 +49,6 @@ function HomePage() {
 
             setMainSentenceTopPosition("60%");
             setShowAlternateSentences(false);
-            //setTimeout(()=> setMainSentenceTopPosition('60%'), 400)
           }}
         >
           Random New Sentence
@@ -57,8 +56,9 @@ function HomePage() {
       </Header>
       <AllSentencesContainer>
         <SentenceContainer animationSpeed={200} top={mainSentenceTopPosition}>
-          <MainSentence showAlternateSentences={showAlternateSentences}>{sentenceObject.text}</MainSentence>
-    
+          <MainSentence showAlternateSentences={showAlternateSentences}>
+            {sentenceObject.text}
+          </MainSentence>
         </SentenceContainer>
         <SentenceContainer
           animationSpeed={200}

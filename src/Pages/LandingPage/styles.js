@@ -72,24 +72,28 @@ transition: all ${props => props.animationSpeed}ms ease-in-out;
 const MainSentence = styled.div`
 text-align: center;
 @media ${device.mobileS} {
-  font-size:${fontSize.mobileS}px;
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 15 : 35}px;
 }
 @media ${device.mobileM} {
 
-  font-size:${fontSize.mobileM}px;
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 20 : 40}px;
 }
 @media ${device.mobileL} {
 
-  font-size:${fontSize.mobileL}px;
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 25 : 45}px;
 }
 @media ${device.tablet}   {
-
-  font-size:${fontSize.tablet}px;
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 30 : 50}px;
 }
 
 @media ${device.laptop} {
 
-  font-size:${fontSize.laptop}px;
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 35 : 55}px;
 }
 @media ${device.laptopL} {
 
@@ -98,11 +102,13 @@ transition: all 200ms 50ms ease-in-out;
 }
 @media ${device.desktop} {
 
-  font-size:${fontSize.desktop};
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 45 : 65}px;
 }
 @media ${device.desktopL} {
 
-  font-size:${fontSize.desktopL};
+  transition: all 200ms 50ms ease-in-out;
+  font-size:${props => props.showAlternateSentences ? 50 : 70}px;
 }
 `
 export {
