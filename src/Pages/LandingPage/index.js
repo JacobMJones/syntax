@@ -4,7 +4,7 @@ import { useStateValue } from "../../State/StateProvider";
 import useResizeAware from "react-resize-aware";
 import Sentence from "../../Components/Sentence";
 import AlternateSentence from "../../Components/AlternateSentence";
-
+import fetchRandomSentence from "../../ServerAPI/fetchRandomSentence.js";
 import {
   BodyContainer,
   SentenceContainer,
@@ -20,20 +20,8 @@ function HomePage() {
   const [showAlternateSentences, setShowAlternateSentences] = useState(false);
   const [resizeListener, sizes] = useResizeAware();
   useEffect(() => {
-    fetchRandomSentence();
+    fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
   }, []);
-
-  const fetchRandomSentence = async () => {
-    setShowAlternateSentences(false);
-    const response = await fetch("http://localhost:500/search-random")
-      .then(res => res.json())
-      .then(res => {
-        setSentenceObject(res);
-        console.log(res.childSentences[0].text);
-      })
-      .catch(() => console.log("error fetching sentence"));
-    return response;
-  };
 
   return (
     <BodyContainer>
@@ -43,7 +31,7 @@ function HomePage() {
       <HeaderRight>
         <button
           onClick={() => {
-            fetchRandomSentence();
+            fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
           }}
         >
           Random New Sentence
@@ -52,13 +40,13 @@ function HomePage() {
       <SentenceContainer>
         <Sentence margin={"2vh"} text={sentenceObject.text} />
 
-        {showAlternateSentences && sentenceObject.childSentences
-          ? sentenceObject.childSentences.map((item, index) => (
-              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
-                <br />
-              </AlternateSentence>
-            ))
-          : ""}
+        {showAlternateSentences &&
+          sentenceObject.childSentences &&
+          sentenceObject.childSentences.map((item, index) => (
+            <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
+              <br />
+            </AlternateSentence>
+          ))}
         <ShowSentencesButton
           onClick={() => {
             setShowAlternateSentences(!showAlternateSentences);
@@ -69,36 +57,6 @@ function HomePage() {
             : "Show alternative versions"}
         </ShowSentencesButton>
       </SentenceContainer>
-      {/* {showAlternateSentences && sentenceObject.childSentences
-          ? sentenceObject.childSentences.map((item, index) => (
-              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
-                <br />
-              </AlternateSentence>
-            ))
-          : ""}
-        {showAlternateSentences ? (
-          <React.Fragment>
-            <Sentence margin={"2vh"} text={sentenceObject.text} />
-            <button
-              onClick={() => {
-                setShowAlternateSentences(false);
-              }}
-            >
-              Hide alternative versions
-            </button>
-          </React.Fragment>
-        ) : (
-          <React.Fragment>
-            <Sentence margin={"12vh"} text={sentenceObject.text} />
-            <button
-              onClick={() => {
-                setShowAlternateSentences(true);
-              }}
-            >
-              Show alternative versions
-            </button>
-          </React.Fragment>
-        )} */}
 
       <InputContainer>
         <input></input>

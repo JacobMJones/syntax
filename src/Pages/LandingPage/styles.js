@@ -64,11 +64,10 @@ const InputContainer = styled.span`
 `;
 
 const ShowSentencesButton = styled.button`
-height:24vh;
+height:5vh;
 width:10vw;
-
 position:absolute;
-right:0;
+left:83vw;
 top:-40px;
 `
 
