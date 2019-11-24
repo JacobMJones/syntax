@@ -49,6 +49,32 @@ function HomePage() {
         </button>
       </HeaderRight>
       <SentenceContainer>
+        <Sentence margin={"2vh"} text={sentenceObject.text} />
+
+        {showAlternateSentences && sentenceObject.childSentences
+          ? sentenceObject.childSentences.map((item, index) => (
+              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
+                <br />
+              </AlternateSentence>
+            ))
+          : ""}
+        <button
+          onClick={() => {
+            setShowAlternateSentences(!showAlternateSentences);
+          }}
+        >
+          {showAlternateSentences
+            ? "Hide alternative versions"
+            : "Show alternative versions"}
+        </button>
+      </SentenceContainer>
+      {/* {showAlternateSentences && sentenceObject.childSentences
+          ? sentenceObject.childSentences.map((item, index) => (
+              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
+                <br />
+              </AlternateSentence>
+            ))
+          : ""}
         {showAlternateSentences ? (
           <React.Fragment>
             <Sentence margin={"2vh"} text={sentenceObject.text} />
@@ -71,15 +97,8 @@ function HomePage() {
               Show alternative versions
             </button>
           </React.Fragment>
-        )}
-        {showAlternateSentences && sentenceObject.childSentences
-          ? sentenceObject.childSentences.map((item, index) => (
-              <AlternateSentence key={`alt-sentence ${index}`} text={item.text}>
-                <br />
-              </AlternateSentence>
-            ))
-          : ""}
-      </SentenceContainer>
+        )} */}
+
       <InputContainer>
         <input></input>
       </InputContainer>
