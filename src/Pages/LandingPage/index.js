@@ -11,7 +11,8 @@ import {
   InputContainer,
   Title,
   HeaderLeft,
-  HeaderRight
+  HeaderRight,
+  ShowSentencesButton
 } from "./styles";
 
 function HomePage() {
@@ -58,7 +59,7 @@ function HomePage() {
               </AlternateSentence>
             ))
           : ""}
-        <button
+        <ShowSentencesButton
           onClick={() => {
             setShowAlternateSentences(!showAlternateSentences);
           }}
@@ -66,7 +67,7 @@ function HomePage() {
           {showAlternateSentences
             ? "Hide alternative versions"
             : "Show alternative versions"}
-        </button>
+        </ShowSentencesButton>
       </SentenceContainer>
       {/* {showAlternateSentences && sentenceObject.childSentences
           ? sentenceObject.childSentences.map((item, index) => (

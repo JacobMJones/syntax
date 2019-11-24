@@ -45,8 +45,6 @@ const NavButton = styled.button`
   margin-right: 30vw;
 `;
 
-
-
 const SentenceContainer = styled.span`
   grid-column: col-start 1 / span 12;
   grid-row: row-start 2 / span 6;
@@ -65,6 +63,15 @@ const InputContainer = styled.span`
   width: 100%;
 `;
 
+const ShowSentencesButton = styled.button`
+height:24vh;
+width:10vw;
+
+position:absolute;
+right:0;
+top:-40px;
+`
+
 export {
 
   BodyContainer,
@@ -73,5 +80,6 @@ export {
   Title,
   NavButton,
   HeaderLeft,
-  HeaderRight
+  HeaderRight,
+  ShowSentencesButton 
 };
