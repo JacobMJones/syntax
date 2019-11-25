@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import fetchSearchSuggestion from "../../ServerAPI/fetchSearchSuggestion.js";
-import fetchSentence from "../../ServerAPI/fetchSentence.js";
-function SearchPage() {
+
+function SearchResultButton() {
   const [suggestions, setSuggestions] = useState(["search for something yo"]);
   return (
     <span>
-      <input
+        open stance
+      {/* <input
         onChange={async event => {
           let s = await fetchSearchSuggestion(event.target.value);
           setSuggestions(s.result);
@@ -14,20 +15,11 @@ function SearchPage() {
 
       {suggestions.map((item, index) => (
         <div key={`suggestion ${index}`}>
-          <button
-            onClick={async () => {
-              
-              let sentence = await fetchSentence(item);
-              console.log('sentence', sentence);
-            }}
-          >
-     
-            {item}
-          </button>
+          <button> {item}</button>
         </div>
-      ))}
+      ))} */}
     </span>
   );
 }
 
-export default SearchPage;
+export default SearchResultButton;
