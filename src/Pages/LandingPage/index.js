@@ -42,7 +42,7 @@ function HomePage() {
             <Sentence row={3}>{sentenceObject.childSentences[currentAltIndex].text}</Sentence>
          )}
       <Button
-        row={5}
+        row={7}
         column={2}
         onClick={() => {
           setShowAlternateSentences(!showAlternateSentences);
@@ -51,13 +51,22 @@ function HomePage() {
         Different version
       </Button>
       <Button
-        row={5}
+        row={7}
         column={4}
         onClick={() => {
           fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
         }}
       >
       Show new sentence
+      </Button>
+      <Button
+        row={7}
+        column={6}
+        onClick={() => {
+          fetchRandomSentence(setShowAlternateSentences, setSentenceObject);
+        }}
+      >
+     Submit New Version
       </Button>
       <InputBox fontSize={40}/>
     </BodyContainer>
