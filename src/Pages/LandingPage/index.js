@@ -3,7 +3,7 @@ import useResizeAware from "react-resize-aware";
 //import Sentence from "../../Components/Sentence";
 import fetchRandomSentence from "../../ServerAPI/fetchRandomSentence.js";
 
-import { BodyContainer, Title, Sentence, Button} from "./style2.js";
+import { BodyContainer, Title, Sentence, Button, InputBox} from "./style2.js";
 //import AlternateSentence from "../../Components/AlternateSentence";
 // import LinkButton from "../../Components/LinkButton";
 // import { useStateValue } from "../../State/StateProvider";
@@ -59,6 +59,7 @@ function HomePage() {
       >
       Show new sentence
       </Button>
+      <InputBox fontSize={40}/>
     </BodyContainer>
 
     // <BodyContainer>

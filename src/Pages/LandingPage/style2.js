@@ -33,14 +33,17 @@ const Button = styled.button`
   grid-row: ${props=> props.row};
 
   text-align: center;
-  font-size: 60px;
+  font-size: 20px;
   width: 100%;
 `;
 
 const InputBox = styled.input`
-width:60vw;
+
 height:10vh;
-font-size:3vw;
+grid-column: 2 / span 6;
+grid-row: 4;
+font-size: ${props=> props.fontSize}px;
+
 `
 
 export { BodyContainer, Title, Sentence, Button, InputBox };
